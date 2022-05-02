@@ -21,9 +21,9 @@ if __name__ == '__main__':
         #fetch registration name
         registration_date = all_values[2].next_element
 
-        #It is necessary fetch all labels to check if domain owner is  (displayed data is different)
+        #It is necessary fetch all labels to check if domain owner is an Organisation or Individual (displayed data is different)
         
-        #Change this variable if your language is different than polish
+        #Change this variable if your language is different than Polish, load for example "nortom.eu" and find "Organisation" label
         label = "Organizacja"
 
         if(soup.find_all("div", {"class": "stat-label"})[7].next_element == label):
@@ -37,7 +37,6 @@ if __name__ == '__main__':
         email = Image.open(io.BytesIO(base64.b64decode(email)))
         bg = Image.new("RGB", email.size, (255,255,255))
         bg.paste(email,email)
-        print
         print(domain_name)
         print(registration_date)
         #print email after OCR
